@@ -1,0 +1,34 @@
+{
+  "name": "@rulesorg/mongoose-rules",
+  "version": "0.1.0",
+  "description": "A set of mongoose model to interact with Rules database",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && tsc-alias"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruleslabs/mongoose-rules.git"
+  },
+  "author": "Charles Lanier",
+  "license": "MIT",
+  "devDependencies": {
+    "tsc": "^2.0.4",
+    "tsc-alias": "^1.6.7",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "mongoose": "^6.3.1"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true
+  },
+  "bugs": {
+    "url": "https://github.com/ruleslabs/mongoose-rules/issues"
+  },
+  "homepage": "https://github.com/ruleslabs/mongoose-rules#readme"
+}

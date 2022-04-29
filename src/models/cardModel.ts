@@ -12,6 +12,7 @@ export interface CardModel {
   youtubePreviewId: string
   nextSerialNumber: number
   unavailableSerialNumbers: number[]
+  ipfsVideoHash?: string
 }
 
 export interface CardModelDocument extends CardModel, Document {}
@@ -58,7 +59,8 @@ const CardModelSchema = new Schema<CardModelDocument>({
     type: [Number],
     default: [],
     required: false,
-  }
+  },
+  ipfsVideoHash: String,
 })
 
 export const MongoCardModel = model<CardModelDocument>('CardModel', CardModelSchema, 'card-models')

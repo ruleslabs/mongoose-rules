@@ -19,6 +19,20 @@ export interface Card {
 }
 
 export interface CardDocument extends Card, Document {}
+export interface OwnerDocument extends Owner, Document {}
+
+const OwnerSchema = new Schema<OwnerDocument>({
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Owner',
+  },
+  starknetAddress: String,
+  price: String,
+  from: {
+    type: Date,
+    required: true,
+  }
+})
 
 const CardSchema = new Schema<CardDocument>({
   slug: {
@@ -46,30 +60,11 @@ const CardSchema = new Schema<CardDocument>({
     type: String,
     required: true,
   },
-  owner: {
-    userId: {
-      type: Schema.Types.ObjectId,
-      ref: 'Owner',
-    },
-    starknetAddress: String,
-    price: String,
-    from: {
-      type: Date,
-      required: true,
-    },
+  owner: OwnerSchema,
+  owners: {
+    type: [OwnerSchema],
+    default: []
   },
-  owners: [{
-    userId: {
-      type: Schema.Types.ObjectId,
-      ref: 'Owner',
-    },
-    starknetAddress: String,
-    price: Number,
-    from: {
-      type: Date,
-      required: true,
-    },
-  }],
 })
 
 export const MongoCard = model<CardDocument>('Card', CardSchema, 'cards')

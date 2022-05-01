@@ -10,7 +10,7 @@ import {
 } from '@/constants'
 
 export interface PackCardModel {
-  cardModelId: Types.ObjectId[]
+  cardModelId: Types.ObjectId
   quantity: number
 }
 

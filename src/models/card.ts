@@ -1,6 +1,6 @@
 import { Document, model, Schema, Types } from 'mongoose'
 
-interface Owner {
+export interface Owner {
   userId?: Types.ObjectId
   starknetAddress?: string
   price?: string

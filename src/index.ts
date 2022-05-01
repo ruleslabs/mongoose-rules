@@ -7,6 +7,7 @@ export * from './models/cardModel'
 export * from './models/pack'
 export * from './models/offer'
 export * from './models/packOrder'
+export * from './models/settings'
 
 export let connection: Connection | undefined
 

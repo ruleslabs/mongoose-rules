@@ -8,6 +8,7 @@ export * from './models/pack'
 export * from './models/offer'
 export * from './models/packOrder'
 export * from './models/settings'
+export * from './models/emailVerification'
 
 export let connection: Connection | undefined
 

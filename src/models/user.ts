@@ -28,7 +28,7 @@ export interface User {
   createdAt: Date
   username: string
   email: string
-  password?: string
+  password: string
   paymentMethodFingerprints: string[]
   starknetAddress?: string
   showcasedDeck: DeckCard[]
@@ -65,7 +65,10 @@ const UserSchema = new Schema<UserDocument>({
     type: String,
     required: true,
   },
-  password: String,
+  password: {
+    type: String,
+    required: true,
+  },
   paymentMethodFingerprints: {
     type: [String],
     default: [],

@@ -4,11 +4,11 @@
   "description": "A set of mongoose model to interact with Rules database",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && tsc-alias"
+    "build": "tsc && tsc-alias",
+    "prepublishOnly": "yarn build"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "prepublishOnly": "yarn build",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ruleslabs/mongoose-rules.git"

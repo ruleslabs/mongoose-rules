@@ -8,6 +8,7 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "prepublishOnly": "yarn build",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ruleslabs/mongoose-rules.git"

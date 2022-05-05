@@ -27,6 +27,7 @@ interface UserProfile {
 export interface User {
   createdAt: Date
   username: string
+  slug: string
   email: string
   password: string
   paymentMethodFingerprints: string[]
@@ -60,6 +61,11 @@ const UserSchema = new Schema<UserDocument>({
   },
   username: {
     type: String,
+    required: true
+  },
+  slug: {
+    type: String,
+    required: true
   },
   email: {
     type: String,

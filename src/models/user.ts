@@ -38,6 +38,7 @@ export interface User {
   rulesPrivateKey?: RulesPrivateKey
   rulesPrivateKeyBackup?: string
   packsBalances: PackBalance[]
+  acceptCommercialEmails: boolean
 }
 
 export interface UserDocument extends User, Document {}
@@ -140,6 +141,10 @@ const UserSchema = new Schema<UserDocument>({
       },
     }],
     default: [],
+  },
+  acceptCommercialEmails: {
+    type: Boolean,
+    required: true,
   },
 })
 

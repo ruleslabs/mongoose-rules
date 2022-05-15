@@ -19,9 +19,10 @@ interface RulesPrivateKey {
 interface UserProfile {
   avatarId?: number
   certified: boolean
-  discordUsername?: string
   twitterUsername?: string
   instagramUsername?: string
+  discordId?: string
+  isDiscordVisible: boolean
 }
 
 export interface User {
@@ -51,9 +52,13 @@ const UserProfileSchema = new Schema<UserProfileDocument>({
     type: Boolean,
     required: true,
   },
-  discordUsername: String,
   twitterUsername: String,
   instagramUsername: String,
+  discordId: String,
+  isDiscordVisible: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const UserSchema = new Schema<UserDocument>({

@@ -24,7 +24,7 @@ export interface Pack {
   supply: number
   releaseDate?: Date
   season?: number
-  starknetTokenId: String
+  starknetTokenId: string
   maxQuantityPerUser: number
 }
 

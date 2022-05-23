@@ -3,7 +3,7 @@ import { Document, model, Schema, Types } from 'mongoose'
 export interface Artist {
   name: string
   slug: string
-  userId: Types.ObjectId
+  userId?: Types.ObjectId
 }
 
 export interface ArtistDocument extends Artist, Document {}
@@ -19,7 +19,6 @@ const ArtistSchema = new Schema<ArtistDocument>({
   },
   userId: {
     type: Schema.Types.ObjectId,
-    required: true,
     ref: 'User',
   }
 })

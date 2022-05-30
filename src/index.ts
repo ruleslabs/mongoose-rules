@@ -12,12 +12,18 @@ export * from './models/emailVerification'
 
 export let connection: Connection | undefined
 
-export function connectMongo() {
-  mongoose.connect(process.env.MONGODB_URI ?? '', {
-    serverSelectionTimeoutMS: 5000 // Timeout after 5s
-  }).catch(err => console.log(err.reason))
+export async function connectMongo() {
+  if (connection) {
+    console.log('Already connected to database')
+    return connection
+  }
 
-  connection = mongoose.connection
-  connection.on('error', console.error.bind(console, 'connection error:'))
-  connection.once('open', () => console.log('Connected to database'))
+  connection = mongoose.createConnection(process.env.MONGODB_URI ?? '', {
+    serverSelectionTimeoutMS: 5000 // Timeout after 5s
+  })
+
+  await connection.asPromise().catch(err => console.log(err.reason))
+
+  console.log('Connected to database')
+  return connection
 }

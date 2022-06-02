@@ -2,7 +2,7 @@ import { Document, model, Schema, Types } from 'mongoose'
 
 export interface Settings {
   lastBlockNumberSynced: number
-  syncing: boolean
+  syncingAt?: Date
 }
 
 export interface SettingsDocument extends Settings, Document {}
@@ -13,9 +13,8 @@ const SettingsSchema = new Schema<SettingsDocument>({
     min: 0,
     required: true,
   },
-  syncing: {
-    type: Boolean,
-    default: false,
+  syncingAt: {
+    type: Date,
     expires: 60,
   }
 })

@@ -38,7 +38,7 @@ const EmailVerificationSchema = new Schema<EmailVerificationDocument>({
   },
 })
 
-EmailVerificationSchema.index({ createdAt: 1 },{ expireAfterSeconds: 900 })
+EmailVerificationSchema.index({ initiatedAt: 1 },{ expireAfterSeconds: 900 })
 
 export const MongoEmailVerification = model<EmailVerificationDocument>(
   'EmailVerification',

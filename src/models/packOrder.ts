@@ -7,6 +7,7 @@ export interface PackOrder {
   paymentIntentId: string
   quantity: number
   createdAt: Date
+  starknetTransactionHash: string
 }
 
 export interface PackOrderDocument extends PackOrder, Document {}
@@ -36,6 +37,10 @@ const PackOrderSchema = new Schema<PackOrderDocument>({
   },
   quantity: {
     type: Number,
+    required: true,
+  },
+  starknetTransactionHash: {
+    type: String,
     required: true,
   },
 })

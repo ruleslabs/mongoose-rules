@@ -19,6 +19,7 @@ const EmailVerificationSchema = new Schema<EmailVerificationDocument>({
   initiatedAt: {
     type: Date,
     required: true,
+    expires: 900,
   },
   username: {
     type: String,
@@ -37,8 +38,6 @@ const EmailVerificationSchema = new Schema<EmailVerificationDocument>({
     default: 0,
   },
 })
-
-EmailVerificationSchema.index({ initiatedAt: 1 },{ expireAfterSeconds: 900 })
 
 export const MongoEmailVerification = model<EmailVerificationDocument>(
   'EmailVerification',

@@ -7,6 +7,7 @@ export interface PackOrder {
   paymentIntentId: string
   quantity: number
   createdAt: Date
+  delivered: boolean
   starknetTransactionId: Types.ObjectId
 }
 
@@ -38,6 +39,11 @@ const PackOrderSchema = new Schema<PackOrderDocument>({
   quantity: {
     type: Number,
     required: true,
+  },
+  delivered: {
+    type: Boolean,
+    required: false,
+    default: true,
   },
   starknetTransactionId: {
     type: Schema.Types.ObjectId,

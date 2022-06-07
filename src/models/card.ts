@@ -38,6 +38,7 @@ const CardSchema = new Schema<CardDocument>({
   slug: {
     type: String,
     required: true,
+    unique: true,
   },
   cardModelId: {
     type: Schema.Types.ObjectId,

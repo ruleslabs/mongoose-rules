@@ -25,6 +25,7 @@ const CardModelSchema = new Schema<CardModelDocument>({
   slug: {
     type: String,
     required: true,
+    unique: true,
   },
   season: {
     type: Number,

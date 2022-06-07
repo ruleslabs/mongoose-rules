@@ -10,6 +10,7 @@ export * from './models/packOrder'
 export * from './models/settings'
 export * from './models/emailVerification'
 export * from './models/starknetTransaction'
+export * from './models/drawnCards'
 
 export let connection: Connection | undefined
 

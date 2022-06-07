@@ -27,4 +27,4 @@ const DrawnCardsSchema = new Schema<DrawnCardsDocument>({
   }
 })
 
-export const MongoDrawnCards = model<DrawnCardsDocument>('DrawnCards', DrawnCardsSchema, 'drawnCardss')
+export const MongoDrawnCards = model<DrawnCardsDocument>('DrawnCards', DrawnCardsSchema, 'drawnCards')

@@ -12,7 +12,7 @@ export * from './models/emailVerification'
 export * from './models/starknetTransaction'
 export * from './models/drawnCards'
 
-export let connection: Connection | undefined
+export let connection: Connection | typeof mongoose | null = null
 
 export async function connectMongo() {
   if (connection) {
@@ -20,11 +20,10 @@ export async function connectMongo() {
     return connection
   }
 
-  connection = mongoose.createConnection(process.env.MONGODB_URI ?? '', {
-    serverSelectionTimeoutMS: 5000 // Timeout after 5s
-  })
-
-  await connection.asPromise().catch(err => console.log(err.reason))
+  connection = await mongoose.connect(process.env.MONGODB_URI ?? '', {
+    serverSelectionTimeoutMS: 5000, // Timeout after 5s
+    bufferCommands: false,
+  }).then(() => mongoose)
 
   console.log('Connected to database')
   return connection

@@ -33,7 +33,6 @@ export interface User {
   password: string
   paymentMethodFingerprints: string[]
   starknetAddress?: string
-  starknetAddressDeploymentTxHash?: string
   showcasedDeck: DeckCard[]
   refreshTokens: string[]
   profile: UserProfile
@@ -116,7 +115,6 @@ const UserSchema = new Schema<UserDocument>({
     required: true
   },
   starknetAddress: String,
-  starknetAddressDeploymentTxHash: String,
   rulesPrivateKey: {
     type: {
       encryptedPrivateKey: {

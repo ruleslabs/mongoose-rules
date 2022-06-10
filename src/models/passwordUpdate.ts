@@ -4,6 +4,7 @@ export interface PasswordUpdate {
   initiatedByIP: string
   userId: Types.ObjectId
   initiatedAt: Date
+  prepareToken: string
   token: string
 }
 
@@ -23,6 +24,10 @@ const PasswordUpdateSchema = new Schema<PasswordUpdateDocument>({
     type: Date,
     required: true,
     expires: 900,
+  },
+  prepareToken: {
+    type: String,
+    required: true,
   },
   token: {
     type: String,

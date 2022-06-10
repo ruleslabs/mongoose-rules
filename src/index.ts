@@ -11,6 +11,7 @@ export * from './models/settings'
 export * from './models/emailVerification'
 export * from './models/starknetTransaction'
 export * from './models/drawnCards'
+export * from './models/passwordUpdate'
 
 export let connection: Connection | typeof mongoose | null = null
 

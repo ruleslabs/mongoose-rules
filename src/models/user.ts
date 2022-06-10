@@ -41,6 +41,7 @@ export interface User {
   packsBalances: PackBalance[]
   acceptCommercialEmails: boolean
   searchedUserIds: Types.ObjectId[]
+  needsRulesPrivateKeyUpdate: String
 }
 
 export interface UserDocument extends User, Document {}
@@ -158,6 +159,10 @@ const UserSchema = new Schema<UserDocument>({
       ref: 'User',
     }],
     default: [],
+  },
+  needsRulesPrivateKeyUpdate: {
+    type: Boolean,
+    default: false,
   },
 })
 

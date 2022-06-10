@@ -41,7 +41,7 @@ export interface User {
   packsBalances: PackBalance[]
   acceptCommercialEmails: boolean
   searchedUserIds: Types.ObjectId[]
-  needsRulesPrivateKeyUpdate: String
+  needsRulesPrivateKeyUpdate: boolean
 }
 
 export interface UserDocument extends User, Document {}

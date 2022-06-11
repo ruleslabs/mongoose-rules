@@ -8,7 +8,7 @@ export interface PackOrder {
   quantity: number
   createdAt: Date
   delivered: boolean
-  starknetTransactionId: Types.ObjectId
+  starknetTransactionId?: Types.ObjectId
 }
 
 export interface PackOrderDocument extends PackOrder, Document {}
@@ -47,7 +47,6 @@ const PackOrderSchema = new Schema<PackOrderDocument>({
   },
   starknetTransactionId: {
     type: Schema.Types.ObjectId,
-    required: true,
     ref: 'StarknetTransaction',
   },
 })

@@ -33,6 +33,7 @@ export interface User {
   password: string
   paymentMethodFingerprints: string[]
   starknetAddress?: string
+  starknetPub?: string
   showcasedDeck: DeckCard[]
   refreshTokens: string[]
   profile: UserProfile

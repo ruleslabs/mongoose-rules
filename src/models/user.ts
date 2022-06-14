@@ -42,6 +42,7 @@ export interface User {
   acceptCommercialEmails: boolean
   searchedUserIds: Types.ObjectId[]
   needsRulesPrivateKeyUpdate: boolean
+  discordRoles: string[]
 }
 
 export interface UserDocument extends User, Document {}
@@ -164,6 +165,10 @@ const UserSchema = new Schema<UserDocument>({
     type: Boolean,
     default: false,
   },
+  discordRoles: {
+    type: [String],
+    default: []
+  }
 })
 
 export const MongoUser = model<UserDocument>('User', UserSchema, 'users')

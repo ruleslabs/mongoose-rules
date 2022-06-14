@@ -118,6 +118,7 @@ const UserSchema = new Schema<UserDocument>({
     required: true
   },
   starknetAddress: String,
+  starknetPub: String,
   rulesPrivateKey: {
     type: {
       encryptedPrivateKey: {

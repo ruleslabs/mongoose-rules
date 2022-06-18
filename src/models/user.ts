@@ -38,11 +38,10 @@ export interface User {
   refreshTokens: string[]
   profile: UserProfile
   rulesPrivateKey?: RulesPrivateKey
-  rulesPrivateKeyBackup?: string
   packsBalances: PackBalance[]
   acceptCommercialEmails: boolean
   searchedUserIds: Types.ObjectId[]
-  needsRulesPrivateKeyUpdate: boolean
+  needsSignerPublicKeyUpdate: boolean
   discordRoles: string[]
 }
 
@@ -136,7 +135,6 @@ const UserSchema = new Schema<UserDocument>({
     },
     required: false
   },
-  rulesPrivateKeyBackup: String,
   packsBalances: {
     type: [{
       packId: {
@@ -163,7 +161,7 @@ const UserSchema = new Schema<UserDocument>({
     }],
     default: [],
   },
-  needsRulesPrivateKeyUpdate: {
+  needsSignerPublicKeyUpdate: {
     type: Boolean,
     default: false,
   },

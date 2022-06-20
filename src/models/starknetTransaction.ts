@@ -3,7 +3,7 @@ import { Document, model, Schema, Types } from 'mongoose'
 export interface StarknetTransaction {
   hash: string
   involvedUserIds?: Types.ObjectId[]
-  syncing: boolean
+  synced: boolean
   failed: boolean
   accepted: boolean
   selector: string
@@ -26,24 +26,21 @@ const StarknetTransactionSchema = new Schema<StarknetTransactionDocument>({
     }],
     default: [],
   },
-  syncing: {
+  synced: {
     type: Boolean,
-    required: true,
     default: false,
   },
   failed: {
     type: Boolean,
-    required: true,
     default: false,
   },
   accepted: {
     type: Boolean,
-    required: true,
     default: false,
   },
   selector: {
     type: String,
-    required: true,
+    default: 'constructor',
   },
   initiatedByAddress: {
     type: String,

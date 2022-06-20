@@ -8,7 +8,7 @@ export interface StarknetTransaction {
   accepted: boolean
   selector: string
   initiatedByAddress: string
-  nonce: number
+  nonce?: number
 }
 
 export interface StarknetTransactionDocument extends StarknetTransaction, Document {}
@@ -47,10 +47,10 @@ const StarknetTransactionSchema = new Schema<StarknetTransactionDocument>({
   },
   initiatedByAddress: {
     type: String,
+    default: '0',
   },
   nonce: {
     type: Number,
-    required: true,
     min: 1,
     validate: {
       validator: Number.isInteger,

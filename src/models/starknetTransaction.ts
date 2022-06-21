@@ -8,6 +8,7 @@ export interface StarknetTransaction {
   accepted: boolean
   selector: string
   initiatedByAddress: string
+  initiatedAt: Date
   nonce?: number
 }
 
@@ -45,6 +46,10 @@ const StarknetTransactionSchema = new Schema<StarknetTransactionDocument>({
   initiatedByAddress: {
     type: String,
     default: '0',
+  },
+  initiatedAt: {
+    type: Date,
+    required: true,
   },
   nonce: {
     type: Number,

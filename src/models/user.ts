@@ -43,6 +43,7 @@ export interface User {
   searchedUserIds: Types.ObjectId[]
   needsSignerPublicKeyUpdate: boolean
   discordRoles: string[]
+  deployingStarknetAccount: boolean
 }
 
 export interface UserDocument extends User, Document {}
@@ -66,19 +67,22 @@ const UserProfileSchema = new Schema<UserProfileDocument>({
 const UserSchema = new Schema<UserDocument>({
   createdAt: {
     type: Date,
-    required: true
+    required: true,
   },
   username: {
     type: String,
-    required: true
+    required: true,
+    unique: true,
   },
   slug: {
     type: String,
-    required: true
+    required: true,
+    unique: true,
   },
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   password: {
     type: String,
@@ -167,7 +171,11 @@ const UserSchema = new Schema<UserDocument>({
   },
   discordRoles: {
     type: [String],
-    default: []
+    default: [],
+  },
+  deployingStarknetAccount: {
+    type: Boolean,
+    default: false
   }
 })
 

@@ -1,6 +1,6 @@
 {
   "name": "@rulesorg/mongoose-rules",
-  "version": "0.10.11",
+  "version": "0.10.12",
   "description": "A set of mongoose model to interact with Rules database",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

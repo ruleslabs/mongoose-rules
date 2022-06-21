@@ -4,7 +4,7 @@ export interface StarknetTransaction {
   hash: string
   involvedUserIds?: Types.ObjectId[]
   synced: boolean
-  failed: boolean
+  rejected: boolean
   accepted: boolean
   selector: string
   initiatedByAddress: string
@@ -31,7 +31,7 @@ const StarknetTransactionSchema = new Schema<StarknetTransactionDocument>({
     type: Boolean,
     default: false,
   },
-  failed: {
+  rejected: {
     type: Boolean,
     default: false,
   },

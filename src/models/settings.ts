@@ -2,7 +2,7 @@ import { Document, model, Schema, Types } from 'mongoose'
 
 export interface Settings {
   lastBlockNumberSynced: number
-  packMintingNonce: number
+  packsMintingNonce: number
 }
 
 export interface SettingsDocument extends Settings, Document {}
@@ -13,7 +13,7 @@ const SettingsSchema = new Schema<SettingsDocument>({
     min: 0,
     default: 0,
   },
-  packMintingNonce: {
+  packsMintingNonce: {
     type: Number,
     min: 0,
     default: 0,

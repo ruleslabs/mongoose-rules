@@ -2,8 +2,8 @@ import { Document, model, Schema, Types } from 'mongoose'
 
 export interface StarknetTransaction {
   hash: string
-  involvedUserIds?: Types.ObjectId[]
-  synced: boolean
+  involvedUserIds: Types.ObjectId[]
+  involvedAddressIds: Types.ObjectId[]
   rejected: boolean
   accepted: boolean
   selector: string
@@ -27,9 +27,12 @@ const StarknetTransactionSchema = new Schema<StarknetTransactionDocument>({
     }],
     default: [],
   },
-  synced: {
-    type: Boolean,
-    default: false,
+  involvedAddressIds: {
+    type: [{
+      type: Schema.Types.ObjectId,
+      ref: 'StarknetAddress',
+    }],
+    default: [],
   },
   rejected: {
     type: Boolean,
@@ -53,7 +56,7 @@ const StarknetTransactionSchema = new Schema<StarknetTransactionDocument>({
   },
   nonce: {
     type: Number,
-    min: 1,
+    min: 0,
     validate: {
       validator: Number.isInteger,
       message: 'nonce: {VALUE} is not an integer value',

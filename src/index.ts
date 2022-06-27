@@ -12,6 +12,7 @@ export * from './models/emailVerification'
 export * from './models/starknetTransaction'
 export * from './models/drawnCards'
 export * from './models/passwordUpdate'
+export * from './models/starknetAddress'
 
 export let connection: Connection | typeof mongoose | null = null
 

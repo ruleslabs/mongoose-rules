@@ -12,6 +12,7 @@ import {
 export interface PackCardModel {
   cardModelId: Types.ObjectId
   quantity: number
+  drawnQuantity: number
 }
 
 export interface Pack {
@@ -66,6 +67,11 @@ const PackSchema = new Schema<PackDocument>({
         type: Number,
         required: true,
         min: MIN_PACK_CARD_MODEL_QUANTITY,
+      },
+      drawnQuantity: {
+        type: Number,
+        default: 0,
+        min: 0,
       },
     }],
     default: undefined,

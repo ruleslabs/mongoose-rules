@@ -21,6 +21,7 @@ export interface Pack {
   cardsPerPack: number
   cardModels?: PackCardModel[]
   maxSupply?: number
+  maxBuyableSupply?: number
   supply: number
   releaseDate?: Date
   season?: number
@@ -70,6 +71,10 @@ const PackSchema = new Schema<PackDocument>({
     default: undefined,
   },
   maxSupply: {
+    type: Number,
+    min: MIN_PACK_MAX_SUPPLY,
+  },
+  maxBuyableSupply: {
     type: Number,
     min: MIN_PACK_MAX_SUPPLY,
   },

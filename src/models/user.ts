@@ -78,11 +78,13 @@ const UserSchema = new Schema<UserDocument>({
     type: String,
     required: true,
     unique: true,
+    index: true,
   },
   email: {
     type: String,
     required: true,
     unique: true,
+    index: true,
   },
   password: {
     type: String,
@@ -120,7 +122,10 @@ const UserSchema = new Schema<UserDocument>({
     type: UserProfileSchema,
     required: true
   },
-  starknetAddress: String,
+  starknetAddress: {
+    type: String,
+    index: true,
+  },
   starknetPub: String,
   rulesPrivateKey: {
     type: {
@@ -178,5 +183,7 @@ const UserSchema = new Schema<UserDocument>({
     default: false
   }
 })
+
+UserSchema.index({ slug: 1, email: 1, starknetAddress: 1 })
 
 export const MongoUser = model<UserDocument>('User', UserSchema, 'users')

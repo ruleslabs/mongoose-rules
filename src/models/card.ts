@@ -39,11 +39,13 @@ const CardSchema = new Schema<CardDocument>({
     type: String,
     required: true,
     unique: true,
+    index: true,
   },
   cardModelId: {
     type: Schema.Types.ObjectId,
     required: true,
     ref: 'CardModel',
+    index: true,
   },
   serialNumber: {
     type: Number,
@@ -60,6 +62,7 @@ const CardSchema = new Schema<CardDocument>({
   starknetTokenId: {
     type: String,
     required: true,
+    index: true,
   },
   owner: OwnerSchema,
   owners: {
@@ -67,5 +70,7 @@ const CardSchema = new Schema<CardDocument>({
     default: []
   },
 })
+
+CardSchema.index({ slug: 1, cardModelId: 1, starknetTokenId: 1 })
 
 export const MongoCard = model<CardDocument>('Card', CardSchema, 'cards')

@@ -3,10 +3,11 @@ import { Document, model, Schema, Types } from 'mongoose'
 export interface PackOpening {
   packId: Types.ObjectId
   userId: Types.ObjectId
-  drawCardsId?: Types.ObjectId
+  drawnCardsId?: Types.ObjectId
   createdAt: Date
   openingPreparationStarknetTransactionId?: Types.ObjectId
   openingStarknetTransactionId?: Types.ObjectId
+  completed: boolean
 }
 
 export interface PackOpeningDocument extends PackOpening, Document {}
@@ -22,7 +23,7 @@ const PackOpeningSchema = new Schema<PackOpeningDocument>({
     required: true,
     ref: 'User',
   },
-  drawCardsId: {
+  drawnCardsId: {
     type: Schema.Types.ObjectId,
     ref: 'DrawCards',
   },
@@ -37,6 +38,10 @@ const PackOpeningSchema = new Schema<PackOpeningDocument>({
   openingStarknetTransactionId: {
     type: Schema.Types.ObjectId,
     ref: 'StarknetTransaction',
+  },
+  completed: {
+    type: Boolean,
+    default: false,
   },
 })
 

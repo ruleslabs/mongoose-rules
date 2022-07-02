@@ -12,6 +12,7 @@ export * from './models/starknetTransaction'
 export * from './models/drawnCards'
 export * from './models/passwordUpdate'
 export * from './models/starknetAddress'
+export * from './models/packOpening'
 
 export let connection: Connection | typeof mongoose | null = null
 export let session: ClientSession | undefined

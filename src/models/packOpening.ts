@@ -24,7 +24,6 @@ const PackOpeningSchema = new Schema<PackOpeningDocument>({
   },
   drawCardsId: {
     type: Schema.Types.ObjectId,
-    required: true,
     ref: 'DrawCards',
   },
   createdAt: {

@@ -8,7 +8,7 @@ export interface DrawnCards {
 
 export interface DrawnCardsDocument extends DrawnCards, Document {}
 
-const DrawnCardsSchema = new Schema<DrawnCardsDocument>({
+export const DrawnCardsSchema = new Schema<DrawnCardsDocument>({
   packId: {
     type: Schema.Types.ObjectId,
     required: true,

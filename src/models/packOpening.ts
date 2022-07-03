@@ -1,9 +1,11 @@
 import { Document, model, Schema, Types } from 'mongoose'
 
+import { DrawnCardsSchema, DrawnCards } from './drawnCards'
+
 export interface PackOpening {
   packId: Types.ObjectId
   userId: Types.ObjectId
-  drawnCardsId?: Types.ObjectId
+  drawnCards?: DrawnCards
   createdAt: Date
   openingPreparationStarknetTransactionId?: Types.ObjectId
   openingStarknetTransactionId?: Types.ObjectId
@@ -23,10 +25,7 @@ const PackOpeningSchema = new Schema<PackOpeningDocument>({
     required: true,
     ref: 'User',
   },
-  drawnCardsId: {
-    type: Schema.Types.ObjectId,
-    ref: 'DrawCards',
-  },
+  drawnCards: DrawnCardsSchema,
   createdAt: {
     type: Date,
     required: true,

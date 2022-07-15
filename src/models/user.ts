@@ -45,6 +45,8 @@ export interface User {
   signerEscapeTriggeredAt: Date
   discordRoles: string[]
   deployingStarknetAccount: boolean
+  triggeringSignerEscape: boolean
+  escapingSigner: boolean
 }
 
 export interface UserDocument extends User, Document {}
@@ -184,8 +186,16 @@ const UserSchema = new Schema<UserDocument>({
   },
   deployingStarknetAccount: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
+  triggeringSignerEscape: {
+    type: Boolean,
+    default: false,
+  },
+  escapingSigner: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 UserSchema.index({ slug: 1, email: 1, starknetAddress: 1 })

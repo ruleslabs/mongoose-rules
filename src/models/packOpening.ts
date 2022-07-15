@@ -8,7 +8,6 @@ export interface PackOpening {
   openingPreparationStarknetTransactionId?: Types.ObjectId
   openingStarknetTransactionId?: Types.ObjectId
   completed: boolean
-  opening: boolean
   needsOpening: boolean
 }
 
@@ -44,10 +43,6 @@ const PackOpeningSchema = new Schema<PackOpeningDocument>({
     ref: 'StarknetTransaction',
   },
   completed: {
-    type: Boolean,
-    default: false,
-  },
-  opening: {
     type: Boolean,
     default: false,
   },

@@ -42,6 +42,7 @@ export interface User {
   acceptCommercialEmails: boolean
   searchedUserIds: Types.ObjectId[]
   needsSignerPublicKeyUpdate: boolean
+  signerEscapeTriggeredAt: Date
   discordRoles: string[]
   deployingStarknetAccount: boolean
 }
@@ -173,6 +174,9 @@ const UserSchema = new Schema<UserDocument>({
   needsSignerPublicKeyUpdate: {
     type: Boolean,
     default: false,
+  },
+  signerEscapeTriggeredAt: {
+    type: Date,
   },
   discordRoles: {
     type: [String],
